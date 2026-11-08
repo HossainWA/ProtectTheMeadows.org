@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Photo placeholder">
+  <rect width="1200" height="800" fill="#dfe8da"/>
+  <rect x="24" y="24" width="1152" height="752" rx="36" fill="none" stroke="#2e7d1e" stroke-width="6" stroke-dasharray="22 16"/>
+  <polygon points="260,560 480,300 600,430 720,350 940,560" fill="#9bb393"/>
+  <circle cx="860" cy="250" r="46" fill="#f2b705"/>
+  <text x="600" y="660" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="54" fill="#14231a">Add a photo here</text>
+  <text x="600" y="716" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#4a5c50">Put your picture in the images folder</text>
+</svg>

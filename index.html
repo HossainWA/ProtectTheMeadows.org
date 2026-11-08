@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Wildflowers get a few weeks a year to grow. Stay on the trail and they keep coming back. A project by NovaBots, a FIRST LEGO League team.">
+<meta property="og:title" content="Protect The Meadows">
+<meta property="og:description" content="One step. Decades to heal. Stay on the trail and take your photos from it.">
+<meta property="og:type" content="website">
+<title>Protect The Meadows</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
+<script src="js/site.js" defer></script>
+<script src="js/landing.js" defer></script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+<section class="wrap" style="padding-top:8px">
+  <h1 class="hero-xl"><span>One step.</span><span class="c-orange">Decades to heal.</span></h1>
+  <p class="lede">Wildflowers get a few weeks a year to grow. Stay on the trail and they keep coming back.</p>
+
+  <div class="scene">
+    <canvas id="meadow" role="img" aria-label="A wildflower meadow with a snowy mountain behind it and a dirt trail through the middle. Footprints off the trail have flattened the flowers they touched."></canvas>
+    <div class="hint" id="hint">Tap the meadow to step. Try the trail, too.</div>
+  </div>
+  <div class="bar">
+    <div class="status" id="status" aria-live="polite"><span id="n">0</span> plants crushed<small id="msg"></small></div>
+    <div class="btns">
+      <button class="good" id="ontrail" type="button">Stay on the trail</button>
+      <button class="warn" id="cut" type="button">Take a shortcut</button>
+      <button id="reset" type="button">Reset</button>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="photo">
+  <div class="photo">
+    <div class="phead">
+      <div class="eyebrow">Before you take the photo</div>
+      <h2 id="photo">Your selfie is <span class="c-orange">evidence.</span></h2>
+      <p class="lead">A photo taken in the flowers proves the flowers are gone. Take it from the trail and it looks even better.</p>
+    </div>
+    <div>
+      <p class="tips-h">Great shots from the trail</p>
+      <ul class="tips">
+        <li>Crouch low on the path so the flowers fill the front of your photo.</li>
+        <li>Zoom in instead of stepping in. 2x or 3x does the walking for you.</li>
+        <li>Put the mountain behind you and ask a friend to shoot from the trail.</li>
+        <li>Go early or near sunset, when the light is soft.</li>
+      </ul>
+    </div>
+    <div class="shots">
+      <figure class="shot bad">
+        <svg id="shot-bad" viewBox="0 0 240 300" role="img" aria-label="A selfie taken in the middle of a meadow. A flattened brown patch surrounds the person. A stamp reads Evidence.">
+          <rect class="s-sky" width="240" height="300"/>
+          <polygon class="s-mount" points="0,142 70,72 105,45 140,75 190,105 240,142"/>
+          <polygon class="s-cap" points="105,45 86,70 98,65 106,73 118,64 130,71 124,57"/>
+          <rect class="s-ground" y="138" width="240" height="162"/>
+          <ellipse class="s-dead" cx="112" cy="232" rx="82" ry="46" opacity=".9"/>
+          <g class="flowers"></g>
+          <path class="s-arm" d="M130 208 L166 180"/>
+          <rect class="s-ink" x="162" y="158" width="14" height="24" rx="3"/>
+          <circle class="s-ink" cx="112" cy="176" r="15"/>
+          <path class="s-ink" d="M86 262 Q86 197 112 197 Q138 197 138 262 Z"/>
+          <g transform="rotate(-10 120 88)"><rect class="s-stamp-bg" x="40" y="68" width="160" height="42" rx="8"/><text class="s-stamp" x="120" y="98" text-anchor="middle">EVIDENCE</text></g>
+        </svg>
+        <figcaption><b>In the flowers</b><span>Looks nice. Shows the damage.</span></figcaption>
+      </figure>
+      <figure class="shot good">
+        <svg id="shot-good" viewBox="0 0 240 300" role="img" aria-label="A photo taken from the trail. Full flowers fill the foreground, butterflies hover above them and a snowy mountain stands behind.">
+          <rect class="s-sky" width="240" height="300"/>
+          <polygon class="s-mount" points="0,142 70,72 105,45 140,75 190,105 240,142"/>
+          <polygon class="s-cap" points="105,45 86,70 98,65 106,73 118,64 130,71 124,57"/>
+          <rect class="s-ground" y="138" width="240" height="162"/>
+          <g class="flowers"></g>
+          <polygon class="s-trail" points="0,280 240,262 240,300 0,300"/>
+          <g><ellipse class="s-wing" cx="92" cy="170" rx="7" ry="5" transform="rotate(-25 92 170)"/><ellipse class="s-wing" cx="104" cy="170" rx="7" ry="5" transform="rotate(25 104 170)"/><rect class="s-ink" x="97" y="165" width="2" height="10" rx="1"/></g>
+          <g><ellipse class="s-wing" cx="160" cy="196" rx="6" ry="4" transform="rotate(-25 160 196)"/><ellipse class="s-wing" cx="170" cy="196" rx="6" ry="4" transform="rotate(25 170 196)"/><rect class="s-ink" x="164" y="192" width="2" height="8" rx="1"/></g>
+          <path class="s-frame" d="M16 36 V16 H36 M204 16 H224 V36 M224 264 V284 H204 M36 284 H16 V264"/>
+          <circle class="s-goodbg" cx="204" cy="46" r="20"/>
+          <path class="s-check" d="M195 46 L202 53 L214 39"/>
+        </svg>
+        <figcaption><b>From the trail</b><span>Looks great. Leaves the flowers.</span></figcaption>
+      </figure>
+    </div>
+    <p class="proof">Rangers say one person leaving the trail can seem minor, but the damage adds up when others follow, especially while chasing photos. <a href="https://www.fox13seattle.com/news/mt-rainier-trails-viral-post" target="_blank" rel="noopener">FOX 13</a></p>
+  </div>
+  
+</section>
+
+<section class="wrap" aria-labelledby="why">
+  <h2 id="why">Why the trail matters</h2>
+  <div class="cards two">
+
+    <article class="card wide">
+      <div class="eyebrow">Short summer</div>
+      <div class="big">A few weeks <small>to bloom</small></div>
+      <div class="year" role="img" aria-label="A year in twelve boxes. Nine are snow-covered. Three are snow-free.">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="go"></i><i class="go"></i><i class="go"></i>
+      </div>
+      <div class="legend"><span><b style="background:var(--snowcell)"></b>Under snow about 9 months</span><span><b style="background:var(--meadow)"></b>Snow-free. Flowers bloom and make seeds in just a few weeks.</span></div>
+      <p class="src">Mount Rainier's mountain meadows. <a href="https://www.fox13seattle.com/news/mt-rainier-trails-viral-post" target="_blank" rel="noopener">FOX 13</a> · <a href="https://king5.com/article/news/local/mount-rainier-national-park-reports-damaged-meadows-perseid-meteor-viewers/281-2f2ec6df-8293-4f9f-9963-8d230f55584f" target="_blank" rel="noopener">KING 5</a></p>
+    </article>
+
+    <article class="card">
+      <div class="eyebrow">Close to home</div>
+      <div class="big">3% <small>left</small></div>
+      <div class="hund" id="hund" role="img" aria-label="One hundred squares. Three are green."></div>
+      <p class="cap">Only 3% of South Puget Sound's native prairie meadows are left. Every one we keep counts.</p>
+      <p class="src"><a href="https://wdfw.wa.gov/species-habitats/ecosystems/westside-prairie" target="_blank" rel="noopener">Washington Dept. of Fish and Wildlife</a></p>
+    </article>
+
+    <article class="card">
+      <div class="eyebrow">Who lives there</div>
+      <div class="big">15 <small>kinds of wildlife</small></div>
+      <div class="dots" id="dots" role="img" aria-label="Fifteen dots: ten butterflies, three birds, one mammal, one reptile."></div>
+      <div class="legend"><span><b style="background:var(--orange-bg)"></b>10 butterflies</span><span><b style="background:var(--blue)"></b>3 birds</span><span><b style="background:var(--fl-purple)"></b>1 mammal</span><span><b style="background:var(--green)"></b>1 reptile</span></div>
+      <p class="cap">These animals need our help, and they depend on prairie meadows.</p>
+      <p class="src"><a href="https://wdfw.wa.gov/species-habitats/ecosystems/westside-prairie" target="_blank" rel="noopener">Washington Dept. of Fish and Wildlife</a></p>
+    </article>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="chain">
+  <h2 id="chain">What one shortcut starts</h2>
+  <div class="chain">
+    <div class="link"><h3>A step</h3><p>Each step off the trail can damage several plants.</p><span class="tag">National Park Service</span></div>
+    <div class="link"><h3>Packed soil</h3><p>Pressed-down ground can stop plants from growing at all.</p><span class="tag">Park ranger, FOX 13</span></div>
+    <div class="link end"><h3>Decades</h3><p>Trampled plants may never return. Scars can take decades to heal.</p><span class="tag">Mount Rainier National Park, KING 5</span></div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="mg">
+  <h2 id="mg">Meet MeadowGuard</h2>
+  <p class="sub">A friendly reminder, right when someone steps off the trail. Built by the NovaBots, a FIRST LEGO League team.</p>
+  <div class="steps">
+    <div class="step"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="18" width="52" height="34" rx="8"/><circle cx="32" cy="35" r="10"/><path d="M22 18 L26 10 H38 L42 18"/></svg><h3>Sees</h3><p>A camera watches the edge of the meadow.</p></div>
+    <div class="step"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="16" width="32" height="32" rx="6"/><path d="M24 6V16M32 6V16M40 6V16M24 48V58M32 48V58M40 48V58M6 24H16M6 32H16M6 40H16M48 24H58M48 32H58M48 40H58"/></svg><h3>Decides</h3><p>An Arduino checks whether a person has left the trail.</p></div>
+    <div class="step go"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10 L58 54 H6 Z"/><path d="M32 26 V40"/><path d="M32 46 V47"/><path d="M6 14 L12 19 M58 14 L52 19 M32 2 V5"/></svg><h3>Reminds</h3><p>Lights glow around the sign and a voice asks them to please stay on the trail.</p></div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="help">
+  <h2 id="help">You can help in a minute</h2>
+  <div class="tiles">
+    <div><b>Walk the trail</b><span>It's built for your feet. The flowers stay for the next visitor.</span></div>
+    <div><b>Picnic on the path</b><span>Blankets, chairs and lunch belong on the trail or in a picnic area, not in the flowers.</span></div>
+    <div><b>Park in marked spots</b><span>Bumpers and tires crush meadow plants too.</span></div>
+    <div><b>Tell a friend</b><span>One kind reminder keeps a whole meadow standing.</span></div>
+  </div>
+  <div class="callout green">
+    <div>
+      <h3 id="thx-h">Be a meadow keeper</h3>
+      <p id="thx-p">Every person who stays on the trail gives bees, butterflies and birds a meadow to come back to. Thank you.</p>
+    </div>
+    <div class="btns">
+      <button id="pledge" type="button" aria-pressed="false">I'll stay on the trail</button>
+      <button id="share" type="button">Copy the link</button>
+    </div>
+  </div>
+  <p class="rule">It's also the rule. At Mount Rainier, leaving the trail in several meadow areas can bring a fine of up to $5,000. Rules differ by park. <a href="https://www.nps.gov/mora/learn/management/upload/MORA-2025-Superintendent-s-Compendium_508_v3_signed.pdf" target="_blank" rel="noopener">2025 Superintendent's Compendium</a></p>
+</section>
+
+<section class="wrap sources">
+  <h2>Sources</h2>
+  <ol>
+      <li><a href="https://www.nps.gov/mora/planyourvisit/meadow-preservation.htm" target="_blank" rel="noopener">NPS Mount Rainier: Meadow Preservation</a></li>
+      <li><a href="https://www.nps.gov/mora/learn/management/upload/MORA-2025-Superintendent-s-Compendium_508_v3_signed.pdf" target="_blank" rel="noopener">NPS Mount Rainier: 2025 Superintendent's Compendium</a></li>
+      <li><a href="https://wdfw.wa.gov/species-habitats/ecosystems/westside-prairie" target="_blank" rel="noopener">Washington Dept. of Fish and Wildlife: Westside prairie</a></li>
+      <li><a href="https://www.fox13seattle.com/news/mt-rainier-trails-viral-post" target="_blank" rel="noopener">FOX 13 Seattle: Photo frenzy at Mt. Rainier</a></li>
+      <li><a href="https://king5.com/article/news/local/mount-rainier-national-park-reports-damaged-meadows-perseid-meteor-viewers/281-2f2ec6df-8293-4f9f-9963-8d230f55584f" target="_blank" rel="noopener">KING 5: Mount Rainier reports damaged meadows</a></li>
+    </ol>
+</section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

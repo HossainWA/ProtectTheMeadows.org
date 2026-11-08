@@ -1,0 +1,159 @@
+/* ==========================================================
+   NovaBots site styles. Every page uses this file.
+   TIP: you almost never need to edit this file.
+   Open styleguide.html in your browser to see every building block.
+   To change a color for the WHOLE site, change it in the first block below.
+   ========================================================== */
+
+:root{
+  /* page */
+  --bg:#f1f5ec; --surface:#ffffff; --ink:#14231a; --muted:#4a5c50; --line:#14231a;
+  /* the three colors from our sign */
+  --green:#2e7d1e; --blue:#1f5fbf; --orange:#c95a00;
+  --orange-bg:#e06a00; --on-orange:#ffffff; --good-bg:#2e7d1e; --on-good:#ffffff;
+  /* meadow drawing colors (used by the landing page) */
+  --sky1:#bfdcef; --sky2:#eaf6fb; --mount:#8da3b8; --snowcap:#ffffff; --hill:#9cc08a; --meadow:#69a352; --meadow2:#3f7a35;
+  --trail:#d2bf96; --trail-edge:#a8946a; --dead:#8b7555; --foot:#33291e;
+  --fl-purple:#7a3fb0; --fl-red:#d9402b; --fl-yellow:#f2b705; --fl-white:#ffffff;
+  --snowcell:#dbe7f1; --cell-off:#d4ddd0;
+  /* code boxes and TODO highlights */
+  --code-bg:#14231a; --code-ink:#dff5d8; --todo-bg:#fff2a8; --todo-ink:#4a3b00; --todo-line:#c9a400;
+  /* fonts */
+  --font-display:'Anton','Impact','Arial Narrow',sans-serif;
+  --font-body:'Public Sans','Segoe UI',Arial,sans-serif;
+  --font-code:ui-monospace,'Cascadia Code',Consolas,Menlo,monospace;
+}
+/* Dark mode: the same names with night-time colors. */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1812; --surface:#16231b; --ink:#eaf3ea; --muted:#a3b8a8; --line:#cfe2d2;
+  --green:#7fd35f; --blue:#7bacff; --orange:#ff9a4a; --on-orange:#101010; --good-bg:#7fd35f; --on-good:#0e1812;
+  --sky1:#13233a; --sky2:#244260; --mount:#3c5672; --snowcap:#c9dbe8; --hill:#2d5a3a; --meadow:#2f6a3a; --meadow2:#1c4527;
+  --trail:#7a6847; --trail-edge:#53452e; --foot:#0a0e0b; --snowcell:#2a3c4d; --cell-off:#26372c;
+  --code-bg:#0a120d; --todo-bg:#4a3f10; --todo-ink:#ffe680; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1812; --surface:#16231b; --ink:#eaf3ea; --muted:#a3b8a8; --line:#cfe2d2;
+  --green:#7fd35f; --blue:#7bacff; --orange:#ff9a4a; --on-orange:#101010; --good-bg:#7fd35f; --on-good:#0e1812;
+  --sky1:#13233a; --sky2:#244260; --mount:#3c5672; --snowcap:#c9dbe8; --hill:#2d5a3a; --meadow:#2f6a3a; --meadow2:#1c4527;
+  --trail:#7a6847; --trail-edge:#53452e; --foot:#0a0e0b; --snowcell:#2a3c4d; --cell-off:#26372c;
+  --code-bg:#0a120d; --todo-bg:#4a3f10; --todo-ink:#ffe680; color-scheme:dark}
+
+/* ---------- basics ---------- */
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.5;margin:0}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(28px,5vw,56px)}
+.c-green{color:var(--green)}.c-blue{color:var(--blue)}.c-orange{color:var(--orange)}
+
+/* ---------- headings and text ---------- */
+h1{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:.95;text-align:center;margin:clamp(16px,3vw,28px) 0 0;font-size:clamp(46px,10vw,110px);text-wrap:balance}
+h1.hero-xl{font-size:clamp(60px,14.5vw,168px);line-height:.92}
+h1.hero-xl span{display:block}
+h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;text-align:center;font-size:clamp(36px,6vw,64px);line-height:1;margin:0 0 22px;text-wrap:balance}
+h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;margin:0}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
+.lede{font-size:clamp(18px,2.4vw,24px);font-weight:600;max-width:36ch;margin:18px auto 22px;text-align:center;text-wrap:balance}
+.sub{text-align:center;font-weight:600;font-size:clamp(17px,2.2vw,21px);max-width:44ch;margin:-8px auto 24px}
+.page-head{padding-bottom:8px}
+.big{font-family:var(--font-display);font-size:clamp(48px,8vw,96px);line-height:.95;text-transform:uppercase;overflow-wrap:anywhere}
+.big small{font-size:.38em;letter-spacing:.02em;margin-left:.15em}
+.cap{margin:0;max-width:52ch;font-weight:600}
+.src{font-size:13px;color:var(--muted);margin:auto 0 0}
+.src a{text-decoration-thickness:1px;text-underline-offset:3px}
+.rule{margin:18px 0 0;font-size:14px;color:var(--muted);max-width:70ch}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;font-size:14px;font-weight:600}
+.legend b{display:inline-block;width:14px;height:14px;border-radius:4px;border:2px solid var(--line);vertical-align:-2px;margin-right:6px}
+
+/* ---------- header and footer (built by js/site.js) ---------- */
+.site-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:18px;padding-bottom:6px}
+.brand{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.04em;font-size:22px;display:flex;gap:.35em;text-decoration:none}
+.site-nav{display:flex;flex-wrap:wrap;gap:8px}
+.site-nav a{border:3px solid var(--line);border-radius:999px;padding:5px 14px;font-weight:800;font-size:14px;text-decoration:none;background:var(--surface)}
+.site-nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+@media (max-width:560px){.site-header{justify-content:center}.site-nav{justify-content:center}}
+.site-footer{border-top:4px solid var(--line);padding-block:28px 48px;font-size:14px;color:var(--muted)}
+.site-footer p{margin:0 0 10px;max-width:70ch}
+.site-footer strong{color:var(--ink)}
+.sources ol{margin:0 auto;padding-left:20px;display:grid;gap:4px;max-width:70ch;font-size:15px}
+
+/* ---------- buttons ---------- */
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+button,.btn{font:inherit;font-weight:800;font-size:15px;cursor:pointer;background:var(--surface);color:var(--ink);border:3px solid var(--line);border-radius:999px;padding:10px 18px;text-decoration:none;display:inline-block}
+button.good,.btn.good{background:var(--good-bg);color:var(--on-good)}
+button.warn,.btn.warn{background:var(--orange-bg);color:var(--on-orange)}
+button:hover,.btn:hover{transform:translateY(-1px)}
+
+/* ---------- BUILDING BLOCK: cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:20px}
+.cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:720px){.cards.two{grid-template-columns:minmax(0,1fr)}}
+.card{border:4px solid var(--line);border-radius:32px;background:var(--surface);padding:clamp(18px,3vw,28px);min-width:0;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+.card p{margin:0;font-weight:600}
+.card.wide{grid-column:1/-1}
+.card.left{align-items:flex-start;text-align:left}
+.card.green{background:var(--good-bg);color:var(--on-good)}
+.card.orange{background:var(--orange-bg);color:var(--on-orange)}
+.card .year,.card .hund{width:100%}
+
+/* ---------- BUILDING BLOCK: steps with arrows ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:26px 30px}
+.step{position:relative;border:4px solid var(--line);border-radius:28px;padding:20px;background:var(--surface);display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center}
+.step svg{width:64px;height:64px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.step h3{font-size:34px}
+.step p{margin:0;font-weight:600}
+.step.go{background:var(--good-bg);color:var(--on-good)}
+@media (min-width:830px){.step:not(:last-child)::after{content:"\2192";position:absolute;right:-29px;top:50%;transform:translateY(-50%);font-size:30px;font-weight:800;color:var(--ink)}}
+
+/* ---------- BUILDING BLOCK: small tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.tiles div{border:4px solid var(--line);border-radius:28px;padding:18px;background:var(--surface);display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+.tiles b{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:28px;line-height:1}
+.tiles span{font-weight:600}
+
+/* ---------- BUILDING BLOCK: big colored banner ---------- */
+.callout{margin-top:20px;border:4px solid var(--line);border-radius:32px;background:var(--surface);padding:clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.callout h3{font-size:clamp(30px,5vw,52px)}
+.callout p{margin:8px auto 0;font-size:18px;font-weight:600;max-width:46ch}
+.callout.green{background:var(--good-bg);color:var(--on-good)}
+.callout.orange{background:var(--orange-bg);color:var(--on-orange)}
+.callout.green button,.callout.green .btn{border-color:var(--on-good);background:transparent;color:var(--on-good)}
+.callout.orange button,.callout.orange .btn{border-color:var(--on-orange);background:transparent;color:var(--on-orange)}
+.callout button.done{background:var(--on-good);color:var(--good-bg)}
+
+/* ---------- BUILDING BLOCK: photo, text next to photo, checklist ---------- */
+figure.pic{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pic img{display:block;width:100%;height:auto;border:4px solid var(--line);border-radius:28px;background:var(--cell-off)}
+.pic figcaption{font-size:14px;font-weight:600;color:var(--muted);text-align:center}
+.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,40px);align-items:center}
+@media (max-width:760px){.two-col{grid-template-columns:minmax(0,1fr)}}
+.two-col .text h2,.two-col .text h3{text-align:left}
+.two-col .text p{margin:0 0 12px;font-weight:600}
+.checklist,.tips{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.checklist li,.tips li{display:flex;gap:12px;align-items:flex-start;font-weight:600;text-align:left}
+.checklist li::before,.tips li::before{content:"\2713";flex:none;width:24px;height:24px;border-radius:50%;background:var(--good-bg);color:var(--on-good);display:grid;place-items:center;font-size:14px;font-weight:800;margin-top:1px}
+
+/* ---------- BUILDING BLOCK: team member ---------- */
+.member img{width:132px;height:132px;border-radius:50%;object-fit:cover;border:4px solid var(--line);background:var(--cell-off)}
+.member h3{font-size:28px}
+.member .role{font-weight:800;color:var(--muted);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+
+/* ---------- BUILDING BLOCK: code and tables ---------- */
+pre.code{margin:0;background:var(--code-bg);color:var(--code-ink);border:4px solid var(--line);border-radius:20px;padding:18px;overflow-x:auto;font:14px/1.55 var(--font-code);text-align:left;tab-size:2}
+.table-wrap{overflow-x:auto;border:4px solid var(--line);border-radius:20px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:480px;text-align:left}
+th,td{padding:10px 14px;border-bottom:2px solid var(--line);font-weight:600;vertical-align:top}
+th{background:var(--ink);color:var(--bg);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+
+/* ---------- TODO: yellow = "fill me in" ---------- */
+.todo{background:var(--todo-bg);color:var(--todo-ink);outline:2px dashed var(--todo-line);outline-offset:1px;border-radius:6px;padding:0 6px}
+.todo-badge{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));background:var(--todo-bg);color:var(--todo-ink);border:3px solid var(--todo-line);border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px;z-index:20}
+
+@media (prefers-reduced-motion:reduce){button:hover,.btn:hover{transform:none}}
+@media (max-width:520px){.btns button,.btns .btn{flex:1 1 auto;text-align:center}}
+
+/* styleguide.html: the dashed box around each example */
+.demo{border:3px dashed var(--line);border-radius:28px;padding:20px;background:var(--bg)}
+.demo section{padding-block:8px}
