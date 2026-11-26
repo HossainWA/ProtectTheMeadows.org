@@ -76,3 +76,9 @@
 .survey .statbox .corner.left{left:14px}
 .survey .statbox .corner.right{right:14px}
 @media (max-width:600px){.survey .statbox{padding-top:62px}.survey .statbox .corner{top:12px}.survey .statbox .corner.left{left:12px}.survey .statbox .corner.right{right:12px}}
+
+/* a photo to the right of a question; it shows the light, camera and sign */
+.q legend.with-pic{display:flex;align-items:center;gap:18px}
+.q legend.with-pic .ask{flex:1;min-width:0;font-style:normal}
+.q legend.with-pic img{flex:none;width:auto;height:190px;border:3px solid var(--line);border-radius:14px}
+@media (max-width:600px){.q legend.with-pic{flex-direction:column;gap:12px}.q legend.with-pic img{height:200px}}

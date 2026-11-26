@@ -8,7 +8,9 @@
     { short: "Photos and shortcuts",
       text: "If you wanted to take a closer photograph of wildflowers or take a shortcut, how likely would you be to stay on the designated trail?" },
     { short: "A light or sound reminder",
-      text: "If a system detected that you had stepped off the trail and provided a gentle light or sound alert, how likely would that reminder encourage you to return to the trail?" }
+      text: "If a system detected that you had stepped off the trail and provided a gentle light or sound alert, how likely would that reminder encourage you to return to the trail?",
+      // Shown on the last page, so visitors can picture the kind of system we mean.
+      afterImage: { src: "images/mg-prototype.jpg", alt: "A trail sign with a red warning light and a camera on top" } }
   ];
   var SCALE = ["Very unlikely", "Unlikely", "Not sure", "Likely", "Very likely"];
   var VERSION = 2, KEY = "meadow-survey-v1";
@@ -35,7 +37,10 @@
     var box = document.querySelector("#form-" + phase + " .questions");
     box.innerHTML = QUESTIONS.map(function (q, i) {
       var name = phase + (i + 1);
-      return '<fieldset class="q" data-name="' + name + '"><legend><span>Question ' + (i + 1) + " of 3</span> " + q.text +
+      var pic = phase === "after" ? q.afterImage : null;
+      var ask = '<span>Question ' + (i + 1) + " of 3</span> " + q.text;
+      if (pic) ask = '<i class="ask">' + ask + '</i><img src="' + pic.src + '" alt="' + pic.alt + '">';
+      return '<fieldset class="q" data-name="' + name + '"><legend' + (pic ? ' class="with-pic"' : "") + ">" + ask +
         '</legend><div class="scale">' + SCALE.map(function (label, n) {
           return '<label><input type="radio" name="' + name + '" value="' + (n + 1) + '"><span><b>' + (n + 1) + "</b>" + label + "</span></label>";
         }).join("") + "</div></fieldset>";
