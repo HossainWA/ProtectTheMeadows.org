@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="How MeadowGuard works: a camera, an Arduino, a light sign and a friendly voice.">
+<meta name="description" content="How MeadowGuard works: a camera, an Arduino, a red warning light and a sound.">
 <title>MeadowGuard | Protect The Meadows</title>
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,83 +15,72 @@
 <body>
 <div id="site-header"></div>
 
-<main>
-<section class="wrap page-head">
-  <div class="eyebrow">Our innovation project</div>
-  <h1>Meet <span class="c-green">MeadowGuard</span></h1>
-  <p class="lede">A friendly reminder, right when someone steps off the trail.</p>
-</section>
-
-<section class="wrap">
-  <h2>How it works</h2>
-  <div class="steps">
-    <div class="step"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="18" width="52" height="34" rx="8"/><circle cx="32" cy="35" r="10"/><path d="M22 18 L26 10 H38 L42 18"/></svg><h3>Sees</h3><p>A camera watches the edge of the meadow.</p></div>
-    <div class="step"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="16" width="32" height="32" rx="6"/><path d="M24 6V16M32 6V16M40 6V16M24 48V58M32 48V58M40 48V58M6 24H16M6 32H16M6 40H16M48 24H58M48 32H58M48 40H58"/></svg><h3>Decides</h3><p>An Arduino checks whether a person has left the trail.</p></div>
-    <div class="step go"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10 L58 54 H6 Z"/><path d="M32 26 V40"/><path d="M32 46 V47"/><path d="M6 14 L12 19 M58 14 L52 19 M32 2 V5"/></svg><h3>Reminds</h3><p>Lights glow around the sign and a voice asks them to please stay on the trail.</p></div>
+<main class="mg">
+<section class="wrap mid mg-hero">
+  <div class="text">
+    <div class="eyebrow">Our innovation project</div>
+    <h1>Meet <span class="c-green">MeadowGuard</span></h1>
+    <p class="lede">A smart warning sign that protects meadows and biodiversity.</p>
+    <ul class="checklist">
+        <li>A red warning light on top</li>
+        <li>A camera that watches for people</li>
+        <li>A "no stepping" sign anyone can understand</li>
+        <li>A QR code that leads to this website</li>
+      </ul>
   </div>
+  <figure class="pic tall">
+      <img src="images/mg-prototype.jpg" alt="The MeadowGuard prototype: a pole with a glowing red light, a camera, a yellow no-footsteps sign and a white QR code sign">
+      <figcaption>Our MeadowGuard prototype</figcaption>
+    </figure>
 </section>
 
-<section class="wrap">
+<section class="wrap mid">
   <div class="two-col">
     <div class="text">
       <h2>The problem we saw</h2>
-      <p><span class="todo">Where did you see people walking in a meadow? What happened to the flowers?</span></p>
-      <p><span class="todo">Say why it matters, in one or two sentences.</span></p>
+      <p>Visitors who walk off the trail damage meadows. That hurts biodiversity: the variety of plants, insects, birds and animals living in a place.</p>
+      <p>The National Park Service says each off-trail footfall damages multiple plants, and trampled soil can be packed too hard for plants to grow.</p>
+      <p class="src"><a href="https://www.nps.gov/mora/planyourvisit/meadow-preservation.htm" target="_blank" rel="noopener">NPS Mount Rainier: Meadow Preservation</a></p>
     </div>
     <figure class="pic">
-      <img src="images/placeholder.svg" alt="TODO: Describe your photo of the problem">
-      <figcaption><span class="todo">Where and when this photo was taken</span></figcaption>
+      <img src="images/nps-meadow-damage.jpg" alt="A wide patch of bare, trampled ground beside a rock-lined trail at Mount Rainier" loading="lazy">
+      <figcaption>Meadow damage from walking around a muddy part of the trail. NPS photo by S. Redman.</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="wrap">
+<section class="wrap mid">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="18" width="52" height="34" rx="8"/><circle cx="32" cy="35" r="10"/><path d="M22 18 L26 10 H38 L42 18"/></svg><h3>Sees</h3><p>A camera watches the edge of the trail and takes a picture every 5 seconds.</p></div>
+    <div class="step"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="16" width="32" height="32" rx="6"/><path d="M24 6V16M32 6V16M40 6V16M24 48V58M32 48V58M40 48V58M6 24H16M6 32H16M6 40H16M48 24H58M48 32H58M48 40H58"/></svg><h3>Decides</h3><p>An Arduino UNO Q uses object detection to look for a person. No one there? It keeps watching.</p></div>
+    <div class="step go"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10 L58 54 H6 Z"/><path d="M32 26 V40"/><path d="M32 46 V47"/><path d="M6 14 L12 19 M58 14 L52 19 M32 2 V5"/></svg><h3>Warns</h3><p>A red light flashes and a sound warns the visitor to stay on the trail.</p></div>
+  </div>
+  <figure class="pic gap">
+      <img src="images/mg-concept.jpg" alt="Drawing of MeadowGuard: a camera spots a person off the trail, and an Arduino UNO Q with solar and battery power sets off a red light and a loud sound" loading="lazy">
+      <figcaption>Our design drawing, including solar and battery power</figcaption>
+    </figure>
+</section>
+
+<section class="wrap mid">
   <h2>What is inside</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Part</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td>Arduino UNO</td><td>The brain. It runs our code.</td></tr>
-        <tr><td><span class="todo">Camera</span></td><td><span class="todo">What it sees and how it sends pictures</span></td></tr>
-        <tr><td><span class="todo">Lights</span></td><td><span class="todo">What they do around the sign</span></td></tr>
-        <tr><td><span class="todo">Speaker</span></td><td><span class="todo">What the voice says</span></td></tr>
+        <tr><td>Arduino UNO Q (4GB)</td><td>The brain. It runs object detection and controls the warning.</td></tr>
+        <tr><td>USB webcam</td><td>Takes the pictures</td></tr>
+        <tr><td>Powered USB hub and 5V 3A adapter</td><td>Connects the camera and powers the board</td></tr>
+        <tr><td>Red warning light and sound</td><td>Gets the visitor's attention</td></tr>
+        <tr><td>LEDs, resistors, breadboard, wires</td><td>Build the circuit</td></tr>
+        <tr><td>Sign, pole, stand, QR card</td><td>Hold everything and share the message</td></tr>
+        <tr><td>Upgrade: solar panel and battery</td><td>Power out on the trail</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<section class="wrap">
-  <h2>How it is wired</h2>
-  <figure class="pic">
-    <img src="images/placeholder.svg" alt="TODO: Describe the wiring diagram">
-    <figcaption><span class="todo">Add your wiring diagram here</span></figcaption>
-  </figure>
-</section>
-
-<section class="wrap">
-  <h2>Our code</h2>
-  <pre class="code">// TODO: paste your Arduino code here.
-// Tip: keep the best 15 or 20 lines, not the whole file.
-
-void setup() {
-  // get ready
-}
-
-void loop() {
-  // look, decide, remind
-}</pre>
-</section>
-
-<section class="wrap">
-  <h2>Did it work?</h2>
-  <div class="cards">
-    <div class="card"><div class="big"><span class="todo">00</span></div><p><span class="todo">How many tests we ran</span></p></div>
-    <div class="card"><div class="big"><span class="todo">00%</span></div><p><span class="todo">How often it worked</span></p></div>
-    <div class="card"><h3>What we changed</h3><p><span class="todo">One thing we fixed after testing.</span></p></div>
-  </div>
-</section>
-
-<section class="wrap">
+<section class="wrap mid">
   <div class="callout green">
     <div>
       <h3>Why meadows need help</h3>

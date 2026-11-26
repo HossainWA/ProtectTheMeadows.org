@@ -56,3 +56,8 @@
 .link .tag{font-size:13px;color:var(--muted);margin-top:auto}
 .link.end{background:var(--orange-bg);color:var(--on-orange)}
 .link.end .tag{color:var(--on-orange);opacity:.9}
+
+/* the survey button at the very top */
+.survey-cta{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;text-align:center}
+.survey-cta .btn{font-size:19px;padding:12px 28px}
+.survey-cta p{margin:0;font-size:14px;font-weight:600;color:var(--muted)}

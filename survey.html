@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A 2-minute visitor survey about enjoying and protecting National Park meadows.">
+<meta property="og:title" content="2-minute meadow survey">
+<meta property="og:description" content="Answer 3 questions, explore a meadow, then answer them again.">
+<meta property="og:type" content="website">
+<title>Visitor Survey | Protect The Meadows</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/survey.css?v=3">
+<script src="js/survey-config.js?v=2" defer></script>
+<script src="js/survey.js" defer></script>
+<script src="js/landing.js" defer></script>
+</head>
+<body>
+<!-- No menu on this page on purpose: visitors should answer the first questions before they read anything else. -->
+<header class="wrap survey-head">
+  <span class="brand"><span class="c-green">Protect</span><span class="c-blue">The</span><span class="c-orange">Meadows</span></span>
+</header>
+
+<main class="wrap survey">
+  <p class="practice" id="practice" hidden>Practice mode: answers are not being saved yet.</p>
+  <ol class="progress" id="progress" hidden aria-label="Survey progress">
+    <li>Your view</li><li>Explore</li><li>Your view again</li>
+  </ol>
+  <noscript><p class="practice">This survey needs JavaScript. Please turn it on and reload the page.</p></noscript>
+
+  <!-- 1. Welcome -->
+  <section data-step="welcome">
+    <div class="eyebrow">2-minute visitor survey</div>
+    <h1 tabindex="-1">How do you enjoy a <span class="c-green">meadow?</span></h1>
+    <p class="lede">We are NovaBots, a FIRST LEGO League team. We want to know how visitors enjoy and protect the mountain meadows in National Parks.</p>
+    <div class="tiles">
+      <div><b>1. Answer</b><span>3 quick questions</span></div>
+      <div><b>2. Explore</b><span>A short story and a meadow you can tap</span></div>
+      <div><b>3. Answer again</b><span>The same 3 topics</span></div>
+    </div>
+    <p class="fine">There are no right or wrong answers. We do not ask for your name or email. Kids, please check with a grown-up first.</p>
+    <div class="btns"><button class="good big-btn" type="button" id="start">Start the survey</button></div>
+  </section>
+
+  <!-- 2. Before -->
+  <section data-step="before" hidden>
+    <h2 tabindex="-1">Your view</h2>
+    <p class="sub">Pick the answer that feels most true for you.</p>
+    <form id="form-before" novalidate>
+      <div class="questions"></div>
+      <p class="warn-text" role="alert" hidden>Please answer all 3 questions to continue.</p>
+      <div class="btns"><button class="good big-btn" type="submit">Next: explore the meadow</button></div>
+    </form>
+  </section>
+
+  <!-- 3. Learn -->
+  <section data-step="learn" hidden>
+    <h2 tabindex="-1">Meet the mountain meadow</h2>
+    <p class="sub">Tap the meadow to take a step. Try the trail, too.</p>
+    <div class="scene">
+      <canvas id="meadow" role="img" aria-label="A wildflower meadow with a snowy mountain behind it and a dirt trail through the middle. Footprints off the trail have flattened the flowers they touched."></canvas>
+      <div class="hint" id="hint">Tap the meadow to step.</div>
+      <div class="fallback" id="meadow-fallback">Loading the meadow. You can keep reading below.</div>
+    </div>
+    <div class="bar">
+      <div class="status" id="status" aria-live="polite"><span id="n">0</span> plants crushed<small id="msg"></small></div>
+      <div class="btns">
+        <button class="good" id="ontrail" type="button">Stay on the trail</button>
+        <button class="warn" id="cut" type="button">Take a shortcut</button>
+        <button id="reset" type="button">Reset</button>
+      </div>
+    </div>
+    <div class="steps facts">
+      <div class="step"><h3>9 months</h3><p>Some mountain meadows, like those at Mount Rainier, spend about nine months under snow.</p></div>
+      <div class="step"><h3>A few weeks</h3><p>Wildflowers get just a few short weeks to bloom and make seeds.</p></div>
+      <div class="step"><h3>Decades</h3><p>Walking off the trail can crush plants and pack down soil. Damage can take decades to heal, and some plants may never return.</p></div>
+    </div>
+    <div class="callout green"><h3>Enjoy the flowers from the trail</h3></div>
+    <p class="fine">Sources: <a href="https://www.fox13seattle.com/news/mt-rainier-trails-viral-post" target="_blank" rel="noopener">FOX 13 Seattle</a>, <a href="https://king5.com/article/news/local/mount-rainier-national-park-reports-damaged-meadows-perseid-meteor-viewers/281-2f2ec6df-8293-4f9f-9963-8d230f55584f" target="_blank" rel="noopener">KING 5</a> and <a href="https://www.nps.gov/mora/planyourvisit/meadow-preservation.htm" target="_blank" rel="noopener">NPS Mount Rainier</a>. Links open in a new tab.</p>
+    <div class="btns"><button class="good big-btn" type="button" id="to-after">Next: 3 last questions</button></div>
+  </section>
+
+  <!-- 4. After -->
+  <section data-step="after" hidden>
+    <h2 tabindex="-1">Your view again</h2>
+    <p class="sub">Now that you have explored the meadow, how do you feel? It is fine if nothing changed.</p>
+    <form id="form-after" novalidate>
+      <div class="questions"></div>
+      <p class="warn-text" role="alert" hidden>Please answer all 3 questions to finish.</p>
+      <div class="btns"><button class="good big-btn" type="submit">Finish</button></div>
+    </form>
+  </section>
+
+  <!-- 5. Thank you -->
+  <section data-step="done" hidden>
+    <h2 tabindex="-1">Thank you!</h2>
+    <p class="sub" id="save-state" aria-live="polite"></p>
+    <div class="btns"><button class="warn" type="button" id="retry" hidden>Try sending again</button></div>
+    <div id="results"></div>
+    <div class="callout green">
+      <div>
+        <h3>Want to see our idea?</h3>
+        <p>MeadowGuard is our smart warning sign that helps visitors stay on the trail.</p>
+      </div>
+      <div class="btns"><a class="btn" href="meadowguard.html">See MeadowGuard</a><a class="btn" href="index.html">Visit our website</a></div>
+    </div>
+    <div class="btns again">
+      <button type="button" id="share-survey">Copy the survey link</button>
+      <button type="button" id="again">Someone else's turn</button>
+    </div>
+  </section>
+</main>
+</body>
+</html>

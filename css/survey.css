@@ -1,0 +1,58 @@
+/* Styles that ONLY survey.html uses. */
+[hidden]{display:none!important}
+.survey-head{max-width:760px;display:flex;justify-content:center;padding-top:18px}
+.wrap.survey{max-width:760px;padding-bottom:48px}
+.survey section{padding-block:clamp(18px,3vw,28px)}
+.survey h1{font-size:clamp(44px,9vw,84px)}
+.survey h1:focus,.survey h2:focus{outline:none}
+.survey h3{text-align:center;margin-bottom:14px}
+.survey .btns{margin-top:22px}
+.survey .tiles{margin-top:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.fine{font-size:14px;color:var(--muted);text-align:center;max-width:56ch;margin:18px auto 0}
+.big-btn{font-size:19px;padding:14px 30px}
+.practice{margin:14px 0 0;border:3px dashed var(--todo-line);background:var(--todo-bg);color:var(--todo-ink);border-radius:16px;padding:10px 14px;font-weight:800;text-align:center;font-size:15px}
+
+/* progress: three labelled bars */
+.progress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:18px 0 0;padding:0;counter-reset:s}
+.progress li{counter-increment:s;border-top:8px solid var(--cell-off);border-radius:4px;padding-top:6px;font-size:13px;font-weight:800;text-align:center;color:var(--muted)}
+.progress li::before{content:counter(s) ". "}
+.progress li.now{border-color:var(--orange-bg);color:var(--ink)}
+.progress li.done{border-color:var(--good-bg);color:var(--ink)}
+
+/* one question */
+.q{border:4px solid var(--line);border-radius:28px;background:var(--surface);padding:18px;margin:0 0 18px;min-width:0}
+.q legend{float:left;width:100%;padding:0;margin-bottom:14px;font-weight:800;font-size:19px;line-height:1.35}
+.q legend span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.q legend + div{clear:both}
+.q.missing{border-color:var(--orange-bg);box-shadow:0 0 0 4px var(--orange-bg)}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.scale label{position:relative;display:flex;cursor:pointer}
+.scale input{position:absolute;opacity:0;width:1px;height:1px}
+.scale span{flex:1;border:3px solid var(--line);border-radius:18px;font-weight:800;font-size:14px;line-height:1.2;text-align:center}
+.scale span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px}
+.scale b{font-family:var(--font-display);font-weight:400;font-size:30px;line-height:1}
+.scale input:checked + span{background:var(--good-bg);color:var(--on-good);border-color:var(--good-bg)}
+.scale input:focus-visible + span{outline:3px solid var(--blue);outline-offset:3px}
+.warn-text{color:var(--orange);font-weight:800;text-align:center}
+
+/* phones: keep all five answers in one row, just tighter */
+@media (max-width:600px){
+  .q{padding:14px 10px}
+  .scale{gap:4px}
+  .scale span{border-width:2px;border-radius:12px;padding:8px 1px;font-size:11px}
+  .scale b{font-size:24px}
+  .progress li{font-size:12px}
+}
+
+.facts{margin-top:28px}
+.facts .step::after{content:none!important}
+
+/* your two sets of answers */
+#results{margin-top:20px}
+#results .cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.pair{display:flex;align-items:center;justify-content:center;gap:12px}
+.pair div{display:flex;flex-direction:column;align-items:center}
+.pair small{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.pair strong{font-family:var(--font-display);font-weight:400;font-size:48px;line-height:1.1}
+.pair em{font-style:normal;font-size:13px;font-weight:600}
+.pair i{font-style:normal;font-size:26px}

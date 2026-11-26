@@ -76,6 +76,10 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .site-footer{border-top:4px solid var(--line);padding-block:28px 48px;font-size:14px;color:var(--muted)}
 .site-footer p{margin:0 0 10px;max-width:70ch}
 .site-footer strong{color:var(--ink)}
+/* NovaBots logo has white lettering, so it always sits on a dark panel */
+.team-logo,.footer-logo{display:block;height:auto;max-width:100%;background:#14231a;border-radius:18px}
+.team-logo{margin:16px auto;padding:18px 24px}
+.footer-logo{margin:0 0 16px;padding:10px 14px}
 .sources ol{margin:0 auto;padding-left:20px;display:grid;gap:4px;max-width:70ch;font-size:15px}
 
 /* ---------- buttons ---------- */
@@ -125,6 +129,8 @@ button:hover,.btn:hover{transform:translateY(-1px)}
 /* ---------- BUILDING BLOCK: photo, text next to photo, checklist ---------- */
 figure.pic{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
 .pic img{display:block;width:100%;height:auto;border:4px solid var(--line);border-radius:28px;background:var(--cell-off)}
+.pic.tall img{max-width:320px;margin:0 auto}
+.pic.gap{margin-top:24px}
 .pic figcaption{font-size:14px;font-weight:600;color:var(--muted);text-align:center}
 .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,40px);align-items:center}
 @media (max-width:760px){.two-col{grid-template-columns:minmax(0,1fr)}}
@@ -157,3 +163,22 @@ tr:last-child td{border-bottom:0}
 /* styleguide.html: the dashed box around each example */
 .demo{border:3px dashed var(--line);border-radius:28px;padding:20px;background:var(--bg)}
 .demo section{padding-block:8px}
+
+/* tables fit on phones */
+@media (max-width:560px){table{min-width:0;font-size:14px}th,td{padding:8px;overflow-wrap:break-word}}
+
+/* ---------- MeadowGuard page layout ---------- */
+.wrap.mid{max-width:960px}
+.mg section{padding-block:clamp(22px,3.5vw,38px)}
+.mg-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,5vw,56px);align-items:center}
+.mg-hero h1{margin:8px 0 0;text-align:left;font-size:clamp(46px,8vw,88px)}
+.mg-hero .eyebrow,.mg-hero .lede{text-align:left}
+.mg-hero .lede{margin:16px 0 22px;max-width:28ch}
+.mg-hero .pic.tall img{width:auto;height:min(640px,80vh);max-width:100%}
+@media (max-width:700px){
+  .mg-hero{grid-template-columns:minmax(0,1fr);justify-items:center}
+  .mg-hero h1,.mg-hero .eyebrow,.mg-hero .lede{text-align:center}
+  .mg-hero .lede{margin-inline:auto}
+  .mg-hero .checklist{width:fit-content;max-width:100%;margin-inline:auto}
+  .mg-hero .pic.tall img{height:520px}
+}
