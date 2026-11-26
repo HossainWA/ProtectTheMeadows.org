@@ -14,10 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/landing.css">
-<link rel="stylesheet" href="css/survey.css?v=3">
+<link rel="stylesheet" href="css/survey.css?v=17">
 <script src="js/survey-config.js?v=2" defer></script>
 <script src="js/survey.js" defer></script>
-<script src="js/landing.js" defer></script>
+<script src="js/landing.js?v=3" defer></script>
 </head>
 <body>
 <!-- No menu on this page on purpose: visitors should answer the first questions before they read anything else. -->
@@ -67,21 +67,18 @@
       <div class="fallback" id="meadow-fallback">Loading the meadow. You can keep reading below.</div>
     </div>
     <div class="bar">
-      <div class="status" id="status" aria-live="polite"><span id="n">0</span> plants crushed<small id="msg"></small></div>
-      <div class="btns">
-        <button class="good" id="ontrail" type="button">Stay on the trail</button>
-        <button class="warn" id="cut" type="button">Take a shortcut</button>
-        <button id="reset" type="button">Reset</button>
+      <div class="statbox">
+        <button class="good corner left" id="ontrail" type="button">Stay on the trail</button>
+        <button class="corner right" id="reset" type="button">Reset</button>
+        <div class="status" id="status" aria-live="polite">
+          <span class="count"><span id="n">0</span> plants crushed</span>
+          <small id="msg" data-off="Your one step &lt;mark&gt;off-trail&lt;/mark&gt; can take the ecosystem &lt;mark&gt;decades&lt;/mark&gt; to heal."></small>
+        </div>
+        <button class="good big-btn" type="button" id="to-after">Click to answer the last 3 questions</button>
       </div>
     </div>
-    <div class="steps facts">
-      <div class="step"><h3>9 months</h3><p>Some mountain meadows, like those at Mount Rainier, spend about nine months under snow.</p></div>
-      <div class="step"><h3>A few weeks</h3><p>Wildflowers get just a few short weeks to bloom and make seeds.</p></div>
-      <div class="step"><h3>Decades</h3><p>Walking off the trail can crush plants and pack down soil. Damage can take decades to heal, and some plants may never return.</p></div>
-    </div>
-    <div class="callout green"><h3>Enjoy the flowers from the trail</h3></div>
+    <p class="motto">Enjoy the flowers from the trail.</p>
     <p class="fine">Sources: <a href="https://www.fox13seattle.com/news/mt-rainier-trails-viral-post" target="_blank" rel="noopener">FOX 13 Seattle</a>, <a href="https://king5.com/article/news/local/mount-rainier-national-park-reports-damaged-meadows-perseid-meteor-viewers/281-2f2ec6df-8293-4f9f-9963-8d230f55584f" target="_blank" rel="noopener">KING 5</a> and <a href="https://www.nps.gov/mora/planyourvisit/meadow-preservation.htm" target="_blank" rel="noopener">NPS Mount Rainier</a>. Links open in a new tab.</p>
-    <div class="btns"><button class="good big-btn" type="button" id="to-after">Next: 3 last questions</button></div>
   </section>
 
   <!-- 4. After -->

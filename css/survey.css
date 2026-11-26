@@ -44,8 +44,18 @@
   .progress li{font-size:12px}
 }
 
-.facts{margin-top:28px}
-.facts .step::after{content:none!important}
+/* the box under the meadow: the plant count, the message and the Next button */
+.survey .statbox{display:flex;flex-direction:column;gap:12px;width:100%;border:4px solid var(--line);border-radius:28px;background:var(--surface);box-shadow:0 5px 0 var(--line);padding:16px}
+.survey .status{display:flex;flex-direction:column;gap:12px;color:var(--orange)}
+.survey .status.good{color:var(--green)}
+.survey .status small{margin:0;padding:0 8px;color:var(--ink);font-weight:600;font-size:21px;line-height:1.5;text-align:center;text-wrap:balance}
+.survey .status.good small{color:var(--green)}
+.survey .status small mark{background:none;color:var(--orange);font-weight:800;font-size:1.2em;text-transform:uppercase;white-space:nowrap}
+.survey .status small:empty{display:none}
+.survey .statbox .big-btn{align-self:center;width:100%;max-width:420px;text-wrap:balance}
+@media (max-width:600px){.survey .statbox{padding:12px}.survey .status small{font-size:18px}.survey .statbox .big-btn{font-size:17px;padding-inline:12px}}
+
+.motto{margin:14px 0 0;text-align:center;font-weight:800;color:var(--green)}
 
 /* your two sets of answers */
 #results{margin-top:20px}
@@ -56,3 +66,13 @@
 .pair strong{font-family:var(--font-display);font-weight:400;font-size:48px;line-height:1.1}
 .pair em{font-style:normal;font-size:13px;font-weight:600}
 .pair i{font-style:normal;font-size:26px}
+
+/* the off-trail sentence stays on one line wherever it fits */
+@media (min-width:760px){.survey .status small{white-space:nowrap;font-size:20px;padding-inline:0}}
+
+/* Stay on the trail and Reset sit in the top corners of the box */
+.survey .statbox{position:relative}
+.survey .statbox .corner{position:absolute;top:14px;padding:7px 14px;font-size:14px}
+.survey .statbox .corner.left{left:14px}
+.survey .statbox .corner.right{right:14px}
+@media (max-width:600px){.survey .statbox{padding-top:62px}.survey .statbox .corner{top:12px}.survey .statbox .corner.left{left:12px}.survey .statbox .corner.right{right:12px}}

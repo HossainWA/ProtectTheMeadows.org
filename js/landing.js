@@ -109,6 +109,7 @@
     if(m){
       if(!steps.length)m.textContent='';
       else if(lastOk)m.textContent='On the trail. No new plants harmed. Thank you.';
+      else if(m.getAttribute('data-off'))m.innerHTML=m.getAttribute('data-off'); // text written in the page itself, may mark key words
       else m.textContent='Off the trail. These can take decades to heal, if they ever do.';
     }
     if(h)h.style.display=steps.length>5?'none':'';
