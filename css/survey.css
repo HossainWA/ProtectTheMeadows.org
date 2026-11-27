@@ -82,3 +82,6 @@
 .q legend.with-pic .ask{flex:1;min-width:0;font-style:normal}
 .q legend.with-pic img{flex:none;width:auto;height:190px;border:3px solid var(--line);border-radius:14px}
 @media (max-width:600px){.q legend.with-pic{flex-direction:column;gap:12px}.q legend.with-pic img{height:200px}}
+
+/* very narrow screens: keep the two corner buttons apart */
+@media (max-width:340px){.survey .statbox .corner{font-size:12px;padding:6px 9px}}
