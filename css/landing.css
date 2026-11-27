@@ -61,3 +61,7 @@
 .survey-cta{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;text-align:center}
 .survey-cta .btn{font-size:19px;padding:12px 28px}
 .survey-cta p{margin:0;font-size:14px;font-weight:600;color:var(--muted)}
+
+/* how many meadow keepers so far */
+.callout .keepers{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,4vw,36px);line-height:1.2;letter-spacing:.02em;text-transform:uppercase}
+.callout .keepers[hidden]{display:none}

@@ -156,14 +156,7 @@
   document.addEventListener('visibilitychange',function(){if(!document.hidden&&started)layout()});
   start();
 
-  // pledge and share
-  var pl=$('pledge');
-  if(pl)pl.addEventListener('click',function(){
-    var on=pl.getAttribute('aria-pressed')!=='true',h=$('thx-h');
-    pl.setAttribute('aria-pressed',on);pl.classList.toggle('done',on);
-    pl.textContent=on?'You are a meadow keeper':"I'll stay on the trail";
-    if(h)h.textContent=on?'Thank you, meadow keeper':'Be a meadow keeper';
-  });
+  // share (the pledge button lives in keepers.js)
   var sh=$('share'),url='https://www.protectthemeadows.org';
   if(sh)sh.addEventListener('click',function(){
     function done(){sh.textContent='Copied. Pass it on.';setTimeout(function(){sh.textContent='Copy the link'},2500)}

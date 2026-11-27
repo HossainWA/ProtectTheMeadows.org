@@ -13,9 +13,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/landing.css?v=3">
 <script src="js/site.js" defer></script>
-<script src="js/landing.js" defer></script>
+<script src="js/landing.js?v=4" defer></script>
+<script src="js/survey-config.js?v=2" defer></script>
+<script src="js/keepers.js" defer></script>
 </head>
 <body>
 <div id="site-header"></div>
@@ -163,6 +165,7 @@
     <div>
       <h3 id="thx-h">Be a meadow keeper</h3>
       <p id="thx-p">Every person who stays on the trail gives bees, butterflies and birds a meadow to come back to. Thank you.</p>
+      <p class="keepers" id="keepers" aria-live="polite" hidden></p>
     </div>
     <div class="btns">
       <button id="pledge" type="button" aria-pressed="false">I'll stay on the trail</button>
