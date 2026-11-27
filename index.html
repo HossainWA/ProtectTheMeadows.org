@@ -13,10 +13,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/landing.css?v=3">
+<link rel="stylesheet" href="css/landing.css?v=6">
 <script src="js/site.js" defer></script>
-<script src="js/landing.js?v=5" defer></script>
-<script src="js/photo-meadow.js?v=4" defer></script>
+<script src="js/landing.js?v=6" defer></script>
+<script src="js/photo-meadow.js?v=6" defer></script>
 <script src="js/survey-config.js?v=2" defer></script>
 <script src="js/keepers.js?v=2" defer></script>
 </head>
@@ -65,35 +65,23 @@
     </div>
     <div class="shots">
       <figure class="shot bad">
-        <svg id="shot-bad" viewBox="0 0 240 300" role="img" aria-label="A selfie taken in the middle of a meadow. A flattened brown patch surrounds the person. A stamp reads Evidence.">
-          <rect class="s-sky" width="240" height="300"/>
-          <polygon class="s-mount" points="0,142 70,72 105,45 140,75 190,105 240,142"/>
-          <polygon class="s-cap" points="105,45 86,70 98,65 106,73 118,64 130,71 124,57"/>
-          <rect class="s-ground" y="138" width="240" height="162"/>
-          <ellipse class="s-dead" cx="112" cy="232" rx="82" ry="46" opacity=".9"/>
-          <g class="flowers"></g>
-          <path class="s-arm" d="M130 208 L166 180"/>
-          <rect class="s-ink" x="162" y="158" width="14" height="24" rx="3"/>
-          <circle class="s-ink" cx="112" cy="176" r="15"/>
-          <path class="s-ink" d="M86 262 Q86 197 112 197 Q138 197 138 262 Z"/>
+        <div class="pane" role="img" aria-label="A photo taken among the Mount Rainier wildflowers: the ground in front is trampled flat and covered in boot prints. A stamp reads Evidence.">
+          <canvas id="shot-bad" width="560" height="700"></canvas>
+          <svg viewBox="0 0 240 300" aria-hidden="true">
           <g transform="rotate(-10 120 88)"><rect class="s-stamp-bg" x="40" y="68" width="160" height="42" rx="8"/><text class="s-stamp" x="120" y="98" text-anchor="middle">EVIDENCE</text></g>
-        </svg>
+          </svg>
+        </div>
         <figcaption><b>In the flowers</b><span>Looks nice. Shows the damage.</span></figcaption>
       </figure>
       <figure class="shot good">
-        <svg id="shot-good" viewBox="0 0 240 300" role="img" aria-label="A photo taken from the trail. Full flowers fill the foreground, butterflies hover above them and a snowy mountain stands behind.">
-          <rect class="s-sky" width="240" height="300"/>
-          <polygon class="s-mount" points="0,142 70,72 105,45 140,75 190,105 240,142"/>
-          <polygon class="s-cap" points="105,45 86,70 98,65 106,73 118,64 130,71 124,57"/>
-          <rect class="s-ground" y="138" width="240" height="162"/>
-          <g class="flowers"></g>
-          <polygon class="s-trail" points="0,280 240,262 240,300 0,300"/>
-          <g><ellipse class="s-wing" cx="92" cy="170" rx="7" ry="5" transform="rotate(-25 92 170)"/><ellipse class="s-wing" cx="104" cy="170" rx="7" ry="5" transform="rotate(25 104 170)"/><rect class="s-ink" x="97" y="165" width="2" height="10" rx="1"/></g>
-          <g><ellipse class="s-wing" cx="160" cy="196" rx="6" ry="4" transform="rotate(-25 160 196)"/><ellipse class="s-wing" cx="170" cy="196" rx="6" ry="4" transform="rotate(25 170 196)"/><rect class="s-ink" x="164" y="192" width="2" height="8" rx="1"/></g>
+        <div class="pane" role="img" aria-label="A photo taken from the trail: the wildflowers are untouched and Mount Rainier stands behind. A check mark shows this is the right way.">
+          <canvas id="shot-good" width="560" height="700"></canvas>
+          <svg viewBox="0 0 240 300" aria-hidden="true">
           <path class="s-frame" d="M16 36 V16 H36 M204 16 H224 V36 M224 264 V284 H204 M36 284 H16 V264"/>
           <circle class="s-goodbg" cx="204" cy="46" r="20"/>
           <path class="s-check" d="M195 46 L202 53 L214 39"/>
-        </svg>
+          </svg>
+        </div>
         <figcaption><b>From the trail</b><span>Looks great. Leaves the flowers.</span></figcaption>
       </figure>
     </div>

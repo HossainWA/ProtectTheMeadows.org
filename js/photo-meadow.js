@@ -309,6 +309,29 @@
   });
   on("reset", "click", reset);
 
+  /* ---------- the two "selfie" pictures further down the home page ---------- */
+  // Both are cut from the same photo: one taken in the flowers, one taken from the trail.
+  function shot(id, left, spots) {
+    var c = $(id);
+    if (!c) return;
+    var g = c.getContext("2d"), cw = 560, ch = 700;
+    var sx = clamp(left, 0, IW - cw), sy = IH - ch;
+    g.drawImage(base, sx, sy, cw, ch, 0, 0, cw, ch);
+    spots.forEach(function (p, i) {
+      steps = i + 1;                         // gives each patch its own ragged shape
+      var patch = makePatch(p[0], p[1], p[2]);
+      g.drawImage(patch.img, patch.x - sx, patch.y - sy);
+    });
+    steps = 0;
+  }
+  function drawShots() {
+    // trampled ground right in front of the camera, with the way in leading from the trail
+    // back to front, so the nearest damage lies on top
+    shot("shot-bad", 40, [[250, 545, 1.15], [390, 565, 1.2], [140, 575, 1.25], [310, 600, 1.65], [470, 630, 1.4], [170, 645, 1.8],
+      [380, 680, 2.0], [110, 700, 1.7], [260, 720, 2.2], [520, 715, 1.5]]);
+    shot("shot-good", tc(0.75) * IW - 280, []);
+  }
+
   var img = new Image();
   img.onload = function () {
     IW = img.naturalWidth; IH = img.naturalHeight; gt = IH * TOP;
@@ -318,7 +341,7 @@
       var t = r(), x = r();
       if (Math.abs(x - tc(t)) > tw(t) + 0.008) plants.push({ x: x * IW, y: py(t), down: false });
     }
-    ready = true; layout(); ui();
+    ready = true; layout(); ui(); drawShots();
   };
   img.onerror = function () { var fb = $("meadow-fallback"); if (fb) fb.textContent = "The meadow photo did not load. Refresh the page to try again."; };
   img.src = PHOTO;
