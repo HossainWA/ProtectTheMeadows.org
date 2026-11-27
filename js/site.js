@@ -32,7 +32,7 @@
   if (footer) {
     footer.outerHTML =
       '<footer class="site-footer"><div class="wrap">' +
-      '<img class="footer-logo" src="images/novabots-logo.png" alt="NovaBots team logo: Where Biodiversity Meets inNOVAtion" width="180" height="104">' +
+      '<img class="footer-logo" src="images/novabots-logo.png?v=2" alt="NovaBots team logo: Where Biodiversity Meets inNOVAtion" width="180" height="105">' +
       "<p><strong>Built by NovaBots</strong>, a FIRST LEGO League team, for the BioGlow 2026–27 season. " +
       "Our project, MeadowGuard, uses a camera and an Arduino to flash a red light and sound a warning when someone steps off the trail.</p>" +
       "<p>protectthemeadows.org</p></div></footer>";
