@@ -2,7 +2,7 @@
    Only a random ID is sent: no names, addresses or locations.
    Open the home page with ?test=1 to try it without changing the real count. */
 (function () {
-  var SHOW_FROM = 10; // smaller totals are not shown yet
+  var SHOW_FROM = 1; // totals smaller than this are not shown
   var KEY = "meadow-keeper-v1";
   var button = document.getElementById("pledge");
   if (!button) return;
@@ -19,7 +19,9 @@
   function show(count) {
     if (!line || typeof count !== "number" || count < SHOW_FROM) return;
     var n = count.toLocaleString("en-US");
-    line.textContent = me && me.saved ? "You are one of " + n + " meadow keepers" : "Join " + n + " meadow keepers";
+    var word = count === 1 ? " meadow keeper" : " meadow keepers";
+    if (me && me.saved) line.textContent = count === 1 ? "You are our first meadow keeper" : "You are one of " + n + word;
+    else line.textContent = "Join " + n + word;
     line.hidden = false;
   }
 
